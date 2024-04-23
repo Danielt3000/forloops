@@ -6,18 +6,15 @@
 
 export function flatArrays(array) {
   let newArrayy = [];
-
-  function hasArray(arr) {
-    for (let i = 0; i < arr.length; i++) {
-      if (typeof arr[i] === "object") {
-        hasArray(arr[i]);
-      } else {
-        newArrayy.push(arr[i]);
+  for (let i = 0; i < array.length; i++) {
+    if (typeof array[i] === "object") {
+      for (let j = 0; j < array[i].length; j++) {
+        newArrayy.push(array[i][j]);
       }
+    } else {
+      newArrayy.push(array[i]);
     }
   }
-
-  hasArray(array);
   return newArrayy;
 }
 
